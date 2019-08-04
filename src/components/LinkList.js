@@ -3,11 +3,11 @@ import { Query } from 'react-apollo'
 import Link from '../containers/Link'
 import { Spinner, Alert } from 'react-bootstrap'
 
-import { FEED_QUERY } from '../services/queries'
+import { FeedQuery } from '../services/queries/Queries.gql'
 
 function LinkList () {
   return (
-    <Query query={FEED_QUERY}>
+    <Query query={FeedQuery}>
       {({ loading, error, data }) => {
         if (loading) {
           return (
