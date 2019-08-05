@@ -6,8 +6,10 @@
     "apollo-boost": "^0.4.3",
     "apollo-cache-inmemory": "^1.6.2",
     "apollo-client": "^2.6.3",
+    "apollo-link-context": "^1.0.18",
     "graphql": "^14.4.2",
     "graphql-tag": "^2.10.1",
+    "graphql.macro": "^1.4.2",
     "react": "^16.8.6",
     "react-apollo": "^2.5.8",
     "react-bootstrap": "^1.0.0-beta.10",
@@ -36,8 +38,5 @@
       "last 1 safari version"
     ]
   },
-  "devDependencies": {
-    "webpack": "^4.39.1",
-    "webpack-cli": "^3.3.6"
-  }
+  "devDependencies": {}
 }
