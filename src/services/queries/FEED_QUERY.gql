@@ -1,0 +1,13 @@
+query FEED_QUERY {
+  feed {
+    links {
+      id
+      url
+      description
+      votes {user { name } }
+      postedBy {name}
+      createdAt
+    }
+    count
+  }
+}
