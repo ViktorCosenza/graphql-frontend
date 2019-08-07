@@ -19,7 +19,7 @@ function SignUp (props) {
   const handleChange = (event) => {
     setForm({
       ...form,
-      [event.target.id]: event.target.value
+      [event.target.name]: event.target.value
     })
   }
 
