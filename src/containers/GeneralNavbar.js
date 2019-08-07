@@ -24,8 +24,8 @@ function GeneralNavbar (props) {
 
           <Dropdown.Menu alignRight>
             <Dropdown.Item>Perfil</Dropdown.Item>
-            <Dropdown.Item>Opções</Dropdown.Item>
-            <Dropdown.Item>Logout</Dropdown.Item>
+            <Dropdown.Item>Histórico</Dropdown.Item>
+            <Dropdown.Item onClick={props.handleLogout}>Logout</Dropdown.Item>
           </Dropdown.Menu>
         </Dropdown>
 
