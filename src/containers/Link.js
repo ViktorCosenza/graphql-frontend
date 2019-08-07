@@ -10,7 +10,7 @@ function Link (props) {
       <p>{description}</p>
       <p>{url}</p>
       <p>
-        <Button variant='outline-light'> Read All</Button>
+        <Button variant='outline-light'>Read All</Button>
       </p>
     </Jumbotron>
   )

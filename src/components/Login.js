@@ -1,9 +1,9 @@
-import React, { useState } from 'react'
+import React, { useState, useContext } from 'react'
 import { Mutation } from 'react-apollo'
 import { login } from '../services/auth'
 import { loader } from 'graphql.macro'
 import LoginForm from '../containers/LoginForm'
-
+import LoggedInContext from '../utils/LoggedInContext'
 import './Login.css'
 const LOGIN_MUTATION = loader('../services/mutations/LOGIN_MUTATION.gql')
 
@@ -12,6 +12,8 @@ function Login (props) {
     email: '',
     password: ''
   })
+
+  const [, login] = useContext(LoggedInContext)
 
   const handleChange = (event) => {
     setForm({
@@ -24,7 +26,7 @@ function Login (props) {
     e.preventDefault()
     loginMutation()
       .then(status => {
-        login(props.setLoggedIn, status.data.login.token)
+        login()
         props.history.push('/')
       })
       .catch(err => console.log(err))

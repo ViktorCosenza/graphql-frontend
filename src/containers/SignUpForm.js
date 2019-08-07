@@ -1,11 +1,16 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import { Button, Form, Card, Alert } from 'react-bootstrap'
 
 function SignUpForm (props) {
   return (
     <Card style={{ background: 'inherit', border: 'none', textAlign: 'center' }}>
       <Card.Body>
-        <Card.Title style={{ color: 'white', fontWeight: 'bold', fontSize: 'xx-large', fontStyle: 'italic' }}>Loremm!</Card.Title>
+        <Link to='/' style={{ textDecoration: 'none' }}>
+          <Card.Title style={{ color: 'white', fontWeight: 'bold', fontSize: 'xx-large', fontStyle: 'italic' }}>
+            Loremm!
+          </Card.Title>
+        </Link>
         <Card.Text style={{ color: 'white', fontWeight: 'bold', fontSize: 'medium' }}>lorem</Card.Text>
         {props.error
           ? <Alert variant='warning'> Oops! Email ou senha incorreto </Alert>
