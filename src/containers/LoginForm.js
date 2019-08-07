@@ -1,13 +1,10 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import { Button, Form, Card, Spinner, Alert } from 'react-bootstrap'
+import { Button, Form, Card, Alert } from 'react-bootstrap'
+import Loading from './Loading'
 
 function LoginForm (props) {
-  if (props.loading) {
-    return (
-      <Spinner animation='grow' variant='light' />
-    )
-  }
+  if (props.loading) return <Loading />
 
   return (
     <Card style={{ background: 'inherit', border: 'none', textAlign: 'center' }}>

@@ -1,9 +1,10 @@
 import React from 'react'
 import Link from '../containers/Link'
-import { Spinner, Alert } from 'react-bootstrap'
+import Loading from '../containers/Loading'
+import { Alert } from 'react-bootstrap'
 
 function LinkList (props) {
-  if (props.loading) return <Spinner animation='grow' variant='light' />
+  if (props.loading) return <Loading />
   if (props.error) return <Alert variant='danger'> {console.log(props.error)} </Alert>
   if (props.links.length === 0) return <Alert variant='info' style={{ height: '10%' }}>No Links</Alert>
 

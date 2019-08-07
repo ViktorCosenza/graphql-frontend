@@ -4,8 +4,8 @@ import { login as Login, logout as Logout } from '../services/auth'
 function useLogin (initialLoggedIn) {
   const [loggedIn, setLoggedIn] = useState(initialLoggedIn)
 
-  const login = (auth) => {
-    Login()
+  const login = token => {
+    Login(token)
     setLoggedIn(true)
   }
 

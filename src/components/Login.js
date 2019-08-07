@@ -1,6 +1,5 @@
 import React, { useState, useContext } from 'react'
 import { Mutation } from 'react-apollo'
-import { login } from '../services/auth'
 import { loader } from 'graphql.macro'
 import LoginForm from '../containers/LoginForm'
 import LoggedInContext from '../utils/LoggedInContext'

@@ -21,20 +21,21 @@ function SignUpForm (props) {
           </Form.Group>
 
           <Form.Group controlId='email'>
-            <Form.Control name='name' type='email' placeholder='Email' />
+            <Form.Control name='email' type='email' placeholder='Email' />
           </Form.Group>
-
           <Form.Group label='password' controlId='password'>
             <Form.Control name='password' type='password' placeholder='Password' />
           </Form.Group>
 
-          <Form.Group label='password' controlId='password'>
-            <Form.Control name='password-confirm' type='password' placeholder='Confirm Password' />
+          <Form.Group label='password-confirm' controlId='password-confirm'>
+            <Form.Control name='passwordConfirm' type='password' placeholder='Confirm Password' />
           </Form.Group>
-
-          <Button variant='primary' type='submit'>
-        SignUp!
-          </Button>
+          { props.confirmIsEqual
+            ? <Button variant='primary' type='submit'>
+                Signup!
+            </Button>
+            : <Button disabled variant='danger'>Passwords must match!</Button>
+          }
         </Form>
       </Card.Body>
     </Card>

@@ -1,22 +1,29 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect, useContext } from 'react'
 import SignUpForm from '../containers/SignUpForm'
 import { Mutation } from 'react-apollo'
 import { loader } from 'graphql.macro'
 
-import { Spinner } from 'react-bootstrap'
+import Loading from '../containers/Loading'
 
-import { login } from '../services/auth'
+import LoggedInContext from '../utils/LoggedInContext'
 
 import './SignUp.css'
 
 const POST_MUTATION = loader('../services/mutations/SIGNUP_MUTATION.gql')
 
 function SignUp (props) {
+  const [, login] = useContext(LoggedInContext)
+  const [confirmIsEqual, setConfirmIsEqual] = useState(true)
   const [form, setForm] = useState({
     name: '',
     email: '',
-    password: ''
+    password: '',
+    passwordConfirm: ''
   })
+
+  useEffect(() => {
+    if (form.password === form.passwordConfirm) { setConfirmIsEqual(true) } else setConfirmIsEqual(false)
+  }, [form.password, form.passwordConfirm])
 
   const handleChange = (event) => {
     setForm({
@@ -27,9 +34,11 @@ function SignUp (props) {
 
   const handleSubmit = (e, postMutation) => {
     e.preventDefault()
+    if (!confirmIsEqual) { return alert('Passwords must match') }
     postMutation()
       .then(status => {
-        login(props.setLoggedIn, status.data.signup.token)
+        login(status.data.signup.token)
+        props.history.push('/')
       })
       .catch(err => console.log(err))
   }
@@ -44,10 +53,11 @@ function SignUp (props) {
           password: form.password
         }}>
         { (postMutation, { loading }) =>
-          loading ? <Spinner animation='grow' variant='light' style={{ margin: 'auto', display: 'float' }} />
+          loading ? <Loading />
             : <SignUpForm
               handleChange={handleChange}
               handleSubmit={(e) => handleSubmit(e, postMutation)}
+              confirmIsEqual={confirmIsEqual}
             />
         }
       </Mutation>
