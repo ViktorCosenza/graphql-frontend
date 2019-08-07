@@ -19,7 +19,7 @@ function Navbar (props) {
   const handleLogout = () => {
     console.log(logout)
     logout()
-    alert('Logged Out :)')
+    alert('Logged Out! Se yaa :)')
   }
 
   return (

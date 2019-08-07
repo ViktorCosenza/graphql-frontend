@@ -7,6 +7,8 @@ import { Spinner } from 'react-bootstrap'
 
 import { login } from '../services/auth'
 
+import './SignUp.css'
+
 const POST_MUTATION = loader('../services/mutations/SIGNUP_MUTATION.gql')
 
 function SignUp (props) {
@@ -33,21 +35,23 @@ function SignUp (props) {
   }
 
   return (
-    <Mutation
-      mutation={POST_MUTATION}
-      variables={{
-        name: form.name,
-        email: form.email,
-        password: form.password
-      }}>
-      { (postMutation, { loading }) =>
-        loading ? <Spinner animation='grow' variant='light' style={{ margin: 'auto', display: 'float' }} />
-          : <SignUpForm
-            handleChange={handleChange}
-            handleSubmit={(e) => handleSubmit(e, postMutation)}
-          />
-      }
-    </Mutation>
+    <div className='signup'>
+      <Mutation
+        mutation={POST_MUTATION}
+        variables={{
+          name: form.name,
+          email: form.email,
+          password: form.password
+        }}>
+        { (postMutation, { loading }) =>
+          loading ? <Spinner animation='grow' variant='light' style={{ margin: 'auto', display: 'float' }} />
+            : <SignUpForm
+              handleChange={handleChange}
+              handleSubmit={(e) => handleSubmit(e, postMutation)}
+            />
+        }
+      </Mutation>
+    </div>
   )
 }
 
