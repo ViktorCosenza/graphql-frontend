@@ -1,5 +1,6 @@
 import React from 'react'
-import { Button, Form, Card, Spinner } from 'react-bootstrap'
+import { Link } from 'react-router-dom'
+import { Button, Form, Card, Spinner, Alert } from 'react-bootstrap'
 
 function LoginForm (props) {
   if (props.loading) {
@@ -11,8 +12,11 @@ function LoginForm (props) {
   return (
     <Card style={{ background: 'inherit', border: 'none', textAlign: 'center' }}>
       <Card.Body>
-        <Card.Title style={{ color: 'white', fontWeight: 'bold', fontSize: 'xx-large' }}>Loremm</Card.Title>
-        <Card.Text style={{ color: 'white', fontWeight: 'bold', fontSize: 'large' }}>lorem</Card.Text>
+        <Card.Title style={{ color: 'white', fontWeight: 'bold', fontSize: 'xx-large', fontStyle: 'italic' }}>Loremm!</Card.Title>
+        <Card.Text style={{ color: 'white', fontWeight: 'bold', fontSize: 'medium' }}>lorem</Card.Text>
+        {props.error
+          ? <Alert variant='warning'> Oops! Email ou senha incorreto </Alert>
+          : <> </>}
         <Form onChange={props.handleChange} onSubmit={props.handleSubmit} style={{ color: 'white' }}>
           <Form.Group controlId='name'>
             <Form.Control name='email' type='text' placeholder='Email' />
@@ -21,10 +25,17 @@ function LoginForm (props) {
           <Form.Group label='password' controlId='password'>
             <Form.Control name='password' type='password' placeholder='Password' />
           </Form.Group>
-          <Button variant='primary' type='submit' style={{ width: '100%' }}>
-          Login
-          </Button>
+
+          <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+            <Button variant='primary' type='submit'>Login</Button>
+            <Link to='/signup'><Button>Cadastre-se</Button></Link>
+          </div>
         </Form>
+        <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-start', marginTop: '15px' }}>
+          <Link to='/recuperacao'>
+            Esqueci minha senha
+          </Link>
+        </div>
       </Card.Body>
     </Card>
   )

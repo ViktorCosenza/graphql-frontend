@@ -1,12 +1,10 @@
 import React, { useState } from 'react'
 import { Mutation } from 'react-apollo'
-
+import { login } from '../services/auth'
+import { loader } from 'graphql.macro'
 import LoginForm from '../containers/LoginForm'
 
-import { login } from '../services/auth'
-
-import { loader } from 'graphql.macro'
-
+import './Login.css'
 const LOGIN_MUTATION = loader('../services/mutations/LOGIN_MUTATION.gql')
 
 function Login (props) {
