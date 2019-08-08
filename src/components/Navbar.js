@@ -5,7 +5,7 @@ import LoggedInContext from '../utils/LoggedInContext'
 
 function Navbar (props) {
   const [search, setSearch] = useState('')
-  const [,, logout] = useContext(LoggedInContext)
+  const [isLoggedIn,, logout] = useContext(LoggedInContext)
 
   const handleChange = event => {
     setSearch(event.target.value)
@@ -19,12 +19,12 @@ function Navbar (props) {
   const handleLogout = () => {
     console.log(logout)
     logout()
-    alert('Logged Out! Se yaa :)')
+    alert('Se yaa :)')
   }
 
   return (
     <GeneralNavbar
-      loggedIn={props.loggedIn}
+      loggedIn={isLoggedIn}
       handleChange={handleChange}
       handleSubmit={handleSubmit}
       handleLogout={handleLogout}

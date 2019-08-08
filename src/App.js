@@ -8,7 +8,7 @@ import { faUser } from '@fortawesome/free-solid-svg-icons'
 import Home from './components/Home'
 import Login from './components/Login'
 import SignUp from './components/SignUp'
-import LinkList from './components/LinkList'
+import Mural from './components/Mural'
 import useLogin from './utils/useLogin'
 
 import { isAuthenticated } from './services/auth'
@@ -38,7 +38,7 @@ function App () {
               ? <Redirect to='/' />
               : <Login {...props} setLoggedIn={login} />
           } />
-          <Route exact path='/posts' component={LinkList} />
+          <Route exact path='/mural' component={Mural} />
         </Switch>
       </div>
     </LoggedInContext.Provider>

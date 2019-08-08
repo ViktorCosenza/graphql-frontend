@@ -6,9 +6,11 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 function GeneralNavbar (props) {
   return (
     <Navbar expand='lg' bg='light'>
-      <Navbar.Brand href='#home' style={{ fontStyle: 'italic', fontWeight: 'bold', color: '#6fc1be' }}>
+      <Link to='/'>
+        <Navbar.Brand style={{ fontStyle: 'italic', fontWeight: 'bold', color: '#6fc1be' }}>
         Lormm!
-      </Navbar.Brand>
+        </Navbar.Brand>
+      </Link>
       <Form inline>
         <FormControl name='search' type='text' placeholder='Do que você precisa?' onChange={props.handleChange} />
         <Button onClick={props.handleSubmit}variant='light' style={{ marginLeft: '1rem' }}>GO!</Button>

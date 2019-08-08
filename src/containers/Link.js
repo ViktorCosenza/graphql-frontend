@@ -1,18 +1,15 @@
 import React from 'react'
-import { Jumbotron, Button } from 'react-bootstrap'
+import { Card, Button } from 'react-bootstrap'
 
 function Link (props) {
-  const url = props.url
-  const description = props.description
-
   return (
-    <Jumbotron style={{ backgroundColor: 'rgba(0, 0, 0, 0.2)', color: 'white' }}>
-      <p>{description}</p>
-      <p>{url}</p>
-      <p>
-        <Button variant='outline-light'>Read All</Button>
-      </p>
-    </Jumbotron>
+    <Card style={{ margin: '1rem 5rem', background: 'white' }}>
+      <Card.Body>
+        <Card.Title>{props.description}</Card.Title>
+        <Card.Text>{props.url}</Card.Text>
+        <Button variant='light'>Read All</Button>
+      </Card.Body>
+    </Card>
   )
 }
 
