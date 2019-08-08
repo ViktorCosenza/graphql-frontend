@@ -9,7 +9,7 @@ import LoggedInContext from '../utils/LoggedInContext'
 
 import './SignUp.css'
 
-const POST_MUTATION = loader('../services/mutations/SIGNUP_MUTATION.gql')
+const SIGNUP_MUTATION = loader('../services/mutations/SIGNUP_MUTATION.gql')
 
 function SignUp (props) {
   const [, login] = useContext(LoggedInContext)
@@ -32,10 +32,10 @@ function SignUp (props) {
     })
   }
 
-  const handleSubmit = (e, postMutation) => {
+  const handleSubmit = (e, signUpMutation) => {
     e.preventDefault()
     if (!confirmIsEqual) { return alert('Passwords must match') }
-    postMutation()
+    signUpMutation()
       .then(status => {
         login(status.data.signup.token)
         props.history.push('/')
@@ -46,17 +46,17 @@ function SignUp (props) {
   return (
     <div className='signup'>
       <Mutation
-        mutation={POST_MUTATION}
+        mutation={SIGNUP_MUTATION}
         variables={{
           name: form.name,
           email: form.email,
           password: form.password
         }}>
-        { (postMutation, { loading }) =>
+        { (signUpMutation, { loading }) =>
           loading ? <Loading />
             : <SignUpForm
               handleChange={handleChange}
-              handleSubmit={(e) => handleSubmit(e, postMutation)}
+              handleSubmit={(e) => handleSubmit(e, signUpMutation)}
               confirmIsEqual={confirmIsEqual}
             />
         }

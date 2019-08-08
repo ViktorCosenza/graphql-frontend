@@ -3,12 +3,7 @@ mutation LOGIN_MUTATION($email: String!, $password: String!){
     token,
     user {
       name, 
-      id,
-      links {
-        id, 
-        url, 
-        createdAt
-      }
+      id
     }
   }
 }

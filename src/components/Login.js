@@ -25,7 +25,7 @@ function Login (props) {
     e.preventDefault()
     loginMutation()
       .then(status => {
-        login()
+        login(status.data.login.token)
         props.history.push('/')
       })
       .catch(err => console.log(err))
